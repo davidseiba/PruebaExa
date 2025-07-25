@@ -11,7 +11,7 @@
 
       <!-- Información de contacto -->
       <div class="col l6 s12">
-        <h5 class="white-text">Montage Hotel</h5>
+        <h5 class="white-text">Montage Venta</h5>
         <p class="grey-text text-lighten-4">
           Dirección: Calle Principal #123, Ciudad, Estado<br>
           Teléfono: (555) 123-4567<br>

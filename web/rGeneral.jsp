@@ -15,56 +15,48 @@
 <div class="container">
   <div class="row">
     <form method="post" action="rUsuario1.jsp" class="col s12">
-      <h4 class="center-align">Registro de Empleado</h4>
+      <h4 class="center-align">Registro de Producto</h4>
       <div class="row">
-        <div class="input-field col s12 m6">
-          <input id="numero_empleado" name="numero_empleado" type="text" class="validate" required>
-          <label for="numero_empleado">Número de Empleado</label>
-        </div>
-        <div class="input-field col s12 m6">
-          <input id="nombre" name="nombre" type="text" class="validate" required>
-          <label for="nombre">Nombre</label>
+        <div class="input-field col s12 m6 offset-m3">
+          <input id="nombre_producto" name="nombre_producto" type="text" class="validate" required>
+          <label for="nombre_producto">Nombre del Producto</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12 m6">
-          <input id="puesto" name="puesto" type="text" class="validate" required>
-          <label for="puesto">Puesto</label>
+          <input id="precio" name="precio" type="number" class="validate" required step="0.01" min="0">
+          <label for="precio">Precio</label>
         </div>
-        <div class="input-field col s12 m3">
-          <input id="dias_trabajados" name="dias_trabajados" type="number" class="validate" required min="0">
-          <label for="dias_trabajados">Días Trabajados</label>
-        </div>
-        <div class="input-field col s12 m3">
-          <input id="sueldo_diario" name="sueldo_diario" type="number" class="validate" required step="0.01" min="0">
-          <label for="sueldo_diario">Sueldo Diario</label>
+        <div class="input-field col s12 m6">
+          <input id="cantidad" name="cantidad" type="number" class="validate" required min="0">
+          <label for="cantidad">Cantidad</label>
         </div>
       </div>
       <div class="row center-align">
-        <button type="button" class="btn orange" onclick="calcularSueldo()">Calcular Sueldo Total</button>
+        <button type="button" class="btn orange" onclick="calcularVenta()">Calcular Venta</button>
       </div>
       <div class="row">
         <div class="input-field col s12 m6 offset-m3">
-          <input id="sueldo_total" name="sueldo_total" type="number" step="0.01" readonly required>
-          <label for="sueldo_total">Sueldo Total</label>
+          <input id="venta" name="venta" type="text" readonly required>
+          <label for="venta">Total de Venta</label>
         </div>
       </div>
       <div class="row center-align">
-        <button class="btn waves-effect waves-light blue" type="submit" name="action">Registrar Empleado</button>
+        <button class="btn waves-effect waves-light blue" type="submit" name="action">Registrar Producto</button>
       </div>
     </form>
   </div>
 </div>
 <script>
-  function calcularSueldo() {
-    const dias = parseFloat(document.getElementById('dias_trabajados').value);
-    const sueldo = parseFloat(document.getElementById('sueldo_diario').value);
-    if (!isNaN(dias) && !isNaN(sueldo)) {
-      const total = dias * sueldo;
-      document.getElementById('sueldo_total').value = total.toFixed(2);
+  function calcularVenta() {
+    const precio = parseFloat(document.getElementById('precio').value);
+    const cantidad = parseFloat(document.getElementById('cantidad').value);
+    if (!isNaN(precio) && !isNaN(cantidad)) {
+      const total = precio * cantidad;
+      document.getElementById('venta').value = total.toFixed(2);
       M.updateTextFields();
     } else {
-      alert("Ingresa valores válidos en días trabajados y sueldo diario.");
+      alert("Ingresa valores válidos en precio y cantidad.");
     }
   }
 </script>

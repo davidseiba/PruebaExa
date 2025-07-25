@@ -17,10 +17,7 @@
     <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     
     <ul class="right hide-on-med-and-down">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="nosotros.html">Nosotros</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
+
     </ul>
   </div>
 </nav>

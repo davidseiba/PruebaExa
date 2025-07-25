@@ -10,24 +10,21 @@
 <br>
 <div class="container center-align" style="margin-top: 30px;">
   <a href="rGeneral.jsp" class="btn-large waves-effect waves-light blue darken-2">
-    Registrar nuevo empleado
-    <i class="material-icons right">person_add</i>
+    Registrar nuevo producto
+    <i class="material-icons right">add_shopping_cart</i>
   </a>
 </div>
 <div class="container">
   <div class="card-panel z-depth-2">
-    <h5 class="center-align">Lista de Empleados Registrados</h5>
+    <h5 class="center-align">Lista de Productos Registrados</h5>
     <table class="striped centered responsive-table highlight">
       <thead class="blue-text text-darken-2">
         <tr>
           <th>ID</th>
-          <th>Número</th>
-          <th>Nombre</th>
-          <th>Puesto</th>
-          <th>Días</th>
-          <th>Diario</th>
-          <th>Total</th>
-          <th colspan="2">Acciones</th>
+          <th>Nombre del Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Venta</th>
         </tr>
       </thead>
       <tbody>
@@ -37,22 +34,18 @@
     while (rs.next()) {
 %>
         <tr>
-          <td><%= rs.getInt("id_empleado") %></td>
-          <td><%= rs.getString("numero_empleado") %></td>
-          <td><%= rs.getString("nombre") %></td>
-          <td><%= rs.getString("puesto") %></td>
-          <td><%= rs.getInt("dias_trabajados") %></td>
-          <td>$<%= rs.getDouble("sueldo_diario") %></td>
-          <td>$<%= rs.getDouble("sueldo_total") %></td>
-          <td><a href="editarEmpleado.jsp?id_empleado=<%= rs.getInt("id_empleado") %>" class="btn-small blue">Editar</a></td>
-          <td><a href="eliminarEmpleado.jsp?id_empleado=<%= rs.getInt("id_empleado") %>" class="btn-small red" onclick="return confirm('¿Eliminar este registro?')">Eliminar</a></td>
+          <td><%= rs.getString("id_producto") %></td>
+          <td><%= rs.getString("nombre_producto") %></td>
+          <td>$<%= rs.getString("precio") %></td>
+          <td><%= rs.getString("cantidad") %></td>
+          <td>$<%= rs.getString("venta") %></td>
         </tr>
-        <%
-          }
-          rs.close();
-          st.close();
-          conexion.close();
-        %>
+<%
+    }
+    rs.close();
+    st.close();
+    conexion.close();
+%>
       </tbody>
     </table>
   </div>
